@@ -36,10 +36,7 @@ const HomeScreen = () => {
       <TimerCard />
       <ListHeader title={'Today'}/>
       
-      <TaskList />
-      <TaskList />
-      <TaskList />
-      <TaskList />
+      <TaskList  />
     </View>
   );
 };

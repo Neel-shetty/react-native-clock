@@ -3,22 +3,35 @@ import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Tags from "../../sharedComponents/Tags";
+import { FontAwesome5 } from "@expo/vector-icons";
 
-const TaskListItem = () => {
+const TaskListItem = ({ data }) => {
+  //console.log(data)
   return (
     <View style={styles.root}>
       <View style={styles.iconContainer}>
-        <View style={styles.circle}>
-          <MaterialIcons name="computer" size={27} color="white" />
+        <View
+          style={[
+            styles.circle,
+            data.icon === "work" && { backgroundColor: "#9B51E0" },
+            data.icon === "gym" && { backgroundColor: "#FFA656" },
+          ]}
+        >
+          {data.icon === "work" && (
+            <MaterialIcons name="computer" size={27} color="white" />
+          )}
+          {data.icon === "gym" && (
+            <FontAwesome5 name="dumbbell" size={24} color="white" />
+          )}
         </View>
       </View>
       <View style={styles.titleContainer}>
         <View>
-          <Text style={styles.title}>UI Design</Text>
+          <Text style={styles.title}>{data.title}</Text>
         </View>
         <View style={styles.tagContainer}>
-          <Tags title={"Work"} color={'#FD5B71'} bgColor={'#FFEFF1'} />
-          <Tags title={"React Project"} color={'#9B51E0'} bgColor={'#F5EEFC'} />
+          <Tags title={data.tags[0]} color={"#FD5B71"} bgColor={"#FFEFF1"} />
+          <Tags title={data.tags[1]} color={"#9B51E0"} bgColor={"#F5EEFC"} />
         </View>
       </View>
       <View style={styles.playContainer}>
@@ -45,7 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 15,
     padding: 15,
-    marginVertical: 10
+    marginVertical: 10,
   },
   iconContainer: {
     flex: 1,
@@ -64,8 +77,8 @@ const styles = StyleSheet.create({
     //backgroundColor: "pink",
     flex: 2.5,
   },
-  tagContainer:{
-    flexDirection:'row'
+  tagContainer: {
+    flexDirection: "row",
   },
   title: {
     fontFamily: "rubik_Medium",
