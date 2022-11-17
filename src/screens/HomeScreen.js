@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React, { useCallback, useEffect } from "react";
 import Header from "../components/sharedComponents/Header";
 import TimerCard from "../components/homescreenComponents/TimerCard";
@@ -31,12 +31,16 @@ const HomeScreen = () => {
     return null;
   }
   return (
-    <View onLayout={onLayoutRootView} style={styles.flex1}>
-      <Header title={"Task"} />
-      <TimerCard />
-      <ListHeader title={"Today"} />
-      <TaskList />
-    </View>
+    <SafeAreaView onLayout={onLayoutRootView} style={styles.flex1}>
+      <View style={styles.top}>
+        <Header title={"Task"} />
+        <TimerCard />
+      </View>
+      <View style={styles.bottom}>
+        <ListHeader title={"Today"} />
+        <TaskList />
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -47,5 +51,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  top: {
+    flex: 2,
+    paddingTop:20,
+    // paddingBottom:10,
+    // backgroundColor:'pink',
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  bottom: {
+    flex: 4,
+    // backgroundColor:'violet',
+    // width: Dimensions.get('window').width
   },
 });

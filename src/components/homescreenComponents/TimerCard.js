@@ -13,8 +13,13 @@ import Svg, {
   Stop,
   Path,
 } from "react-native-svg";
+import { useNavigation } from "@react-navigation/native";
 
 const TimerCard = () => {
+  const navigation = useNavigation();
+  function TimerScreen() {
+    navigation.navigate("StackScreens", { screen: "Timer" });
+  }
   return (
     <View style={styles.root}>
       <View style={styles.card}>
@@ -58,7 +63,7 @@ const TimerCard = () => {
           </View>
         </View>
         <View style={styles.arrowContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={TimerScreen}>
             <Svg
               width={24}
               height={24}
@@ -113,8 +118,8 @@ const styles = StyleSheet.create({
   title: {
     color: "white",
     paddingLeft: 10,
-    fontFamily: 'rubik_Regular',
-    fontSize: 16
+    fontFamily: "rubik_Regular",
+    fontSize: 16,
   },
   arrowContainer: {
     alignItems: "flex-start",

@@ -7,6 +7,7 @@ import AddTaskScreen from "./screens/AddTaskScreen";
 import ReportScreen from "./screens/ReportScreen";
 import { Ionicons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Timer from "./screens/Timer";
 
 const Tabs = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -17,6 +18,11 @@ function StackScreens() {
       <Stack.Screen
         name="AddTask"
         component={AddTaskScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Timer"
+        component={Timer}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -49,12 +55,12 @@ const Navigator = () => {
           }}
         />
         <Tabs.Screen
-          name="AddScreen"
+          name="StackScreens"
           component={StackScreens}
           options={{
             headerShown: false,
             tabBarStyle: {
-              display:'none'
+              display: "none",
             },
             tabBarIcon: ({ focused }) => (
               <Ionicons name="add-circle" size={49} color="black" />
