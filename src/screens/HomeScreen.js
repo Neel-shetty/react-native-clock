@@ -4,11 +4,14 @@ import Header from "../components/sharedComponents/Header";
 import TimerCard from "../components/homescreenComponents/TimerCard";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
+import ListHeader from "../components/homescreenComponents/ListHeader";
+import TaskList from "../components/homescreenComponents/TaskList/TaskList";
 
 const HomeScreen = () => {
   const [fontsLoaded] = useFonts({
-    rubikMedium: require("../../assets/fonts/static/Rubik-Medium.ttf"),
-    rubikRegular: require("../../assets/fonts/static/Rubik-Regular.ttf")
+    rubik_Medium: require("../../assets/fonts/static/Rubik-Medium.ttf"),
+    rubik_Regular: require("../../assets/fonts/static/Rubik-Regular.ttf"),
+    rubik_Bold: require('../../assets/fonts/static/Rubik-Bold.ttf')
   });
 
   useEffect(() => {
@@ -31,6 +34,8 @@ const HomeScreen = () => {
     <View onLayout={onLayoutRootView} style={styles.flex1}>
       <Header title={"Task"} />
       <TimerCard />
+      <ListHeader title={'Today'}/>
+      <TaskList />
     </View>
   );
 };

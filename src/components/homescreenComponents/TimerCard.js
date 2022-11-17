@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   time: {
-    fontFamily: "rubikMedium",
+    fontFamily: "rubik_Medium",
     fontSize: 32,
     color: "white",
   },
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   title: {
     color: "white",
     paddingLeft: 10,
-    fontFamily: 'rubikRegular',
+    fontFamily: 'rubik_Regular',
     fontSize: 16
   },
   arrowContainer: {

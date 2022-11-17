@@ -8,28 +8,18 @@ import {
 import React from "react";
 import Svg, { Path } from "react-native-svg";
 
-const Header = ({ title }) => {
+const ListHeader = ({ title }) => {
   return (
     <View style={styles.root}>
       <Text style={styles.headerText}>{title}</Text>
       <TouchableOpacity>
-        <Svg
-          width={24}
-          height={24}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <Path
-            d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm14 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
-            fill="#828282"
-          />
-        </Svg>
+        <Text style={styles.text2}>See All</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default Header;
+export default ListHeader;
 
 const styles = StyleSheet.create({
   root: {
@@ -41,7 +31,13 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontFamily: "rubik_Medium",
-    fontSize: 24,
-    color: "#070417",
+    fontSize: 20,    
+    color: '#070417'
   },
+  text2: {
+    fontFamily: 'rubik_Regular',
+    fontSize: 16,
+    color: '#070417'
+
+  }
 });
