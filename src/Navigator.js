@@ -49,7 +49,7 @@ const Navigator = () => {
               <Ionicons
                 name={focused ? "time" : "time-outline"}
                 size={24}
-                color="black"
+                color="#828282"
               />
             ),
           }}
@@ -83,7 +83,7 @@ const Navigator = () => {
               <Ionicons
                 name={focused ? "pie-chart" : "pie-chart-outline"}
                 size={24}
-                color="black"
+                color="#828282"
               />
             ),
           }}
