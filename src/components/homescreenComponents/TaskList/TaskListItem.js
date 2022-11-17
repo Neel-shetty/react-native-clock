@@ -30,8 +30,28 @@ const TaskListItem = ({ data }) => {
           <Text style={styles.title}>{data.title}</Text>
         </View>
         <View style={styles.tagContainer}>
-          <Tags title={data.tags[0]} color={"#FD5B71"} bgColor={"#FFEFF1"} />
-          <Tags title={data.tags[1]} color={"#9B51E0"} bgColor={"#F5EEFC"} />
+          <Tags
+            title={data.tags[0]}
+            color={
+              (data.icon === "work" ? "#FD5B71" : null) ||
+              (data.icon === "gym" ? "#828282" : null)
+            }
+            bgColor={
+              (data.icon === "work" ? "#FFEFF1" : null) ||
+              (data.icon === "gym" ? "#F2F2F2" : null)
+            }
+          />
+          <Tags
+            title={data.tags[1]}
+            color={
+              (data.icon === "work" ? "#9B51E0" : null) ||
+              (data.icon === "gym" ? "#FFA656" : null)
+            }
+            bgColor={
+              (data.icon === "work" ? "#F5EEFC" : null) ||
+              (data.icon === "gym" ? "#FEF5ED" : null)
+            }
+          />
         </View>
       </View>
       <View style={styles.playContainer}>
