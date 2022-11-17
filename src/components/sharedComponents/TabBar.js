@@ -5,6 +5,7 @@ const TabBar = () => {
   return (
     <View style={styles.root}>
       <Text>TabBar</Text>
+      <Text>ICON</Text>
     </View>
   )
 }
@@ -17,6 +18,6 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 25,
     borderTopEndRadius:25,
     overflow:'hidden',
-    backgroundColor:'pink'
+    backgroundColor:'pink',
   }
 })
