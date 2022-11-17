@@ -11,7 +11,7 @@ const HomeScreen = () => {
   const [fontsLoaded] = useFonts({
     rubik_Medium: require("../../assets/fonts/static/Rubik-Medium.ttf"),
     rubik_Regular: require("../../assets/fonts/static/Rubik-Regular.ttf"),
-    rubik_Bold: require('../../assets/fonts/static/Rubik-Bold.ttf')
+    rubik_Bold: require("../../assets/fonts/static/Rubik-Bold.ttf"),
   });
 
   useEffect(() => {
@@ -34,9 +34,8 @@ const HomeScreen = () => {
     <View onLayout={onLayoutRootView} style={styles.flex1}>
       <Header title={"Task"} />
       <TimerCard />
-      <ListHeader title={'Today'}/>
-      
-      <TaskList  />
+      <ListHeader title={"Today"} />
+      <TaskList />
     </View>
   );
 };
