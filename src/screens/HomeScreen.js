@@ -1,11 +1,36 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import Header from "../components/sharedComponents/Header";
+import TimerCard from "../components/homescreenComponents/TimerCard";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 
 const HomeScreen = () => {
+  const [fontsLoaded] = useFonts({
+    rubikMedium: require("../../assets/fonts/static/Rubik-Medium.ttf"),
+    rubikRegular: require("../../assets/fonts/static/Rubik-Regular.ttf")
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+    prepare();
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.flex1}>
-      <Header />
+    <View onLayout={onLayoutRootView} style={styles.flex1}>
+      <Header title={"Task"} />
+      <TimerCard />
     </View>
   );
 };
