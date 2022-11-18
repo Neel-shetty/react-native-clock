@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     height: height / 3,
     minHeight: 300,
     width: width,
-    backgroundColor: "pink",
+    //backgroundColor: "pink",
   },
   time: {
     fontFamily: "rubik_Bold",

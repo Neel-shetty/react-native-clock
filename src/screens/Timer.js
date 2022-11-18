@@ -10,6 +10,7 @@ import Svg, {
 } from "react-native-svg";
 import Title from "../components/TimerComponents/Title";
 import ProgressCircle from "../components/TimerComponents/ProgressCircle";
+import Controls from "../components/TimerComponents/Controls";
 
 const Timer = () => {
   return (
@@ -17,14 +18,14 @@ const Timer = () => {
       <View style={{flex:2, alignItems:'center',justifyContent:'center'}}>
         <Header/>
       </View>
-      <View style={{flex:3, alignItems:'center', justifyContent:'center'}}>
+      <View style={{flex:1, alignItems:'center', justifyContent:'flex-start'}}>
         <Title/>
       </View>
-      <View style={{alignItems:'center', justifyContent:'center', flex:5, backgroundColor:'violet'}}>
+      <View style={{alignItems:'center', justifyContent:'center', flex:5}}>
         <ProgressCircle />
       </View>
       <View style={{flex:3, alignItems:'center', justifyContent:'center'}}>
-        <Text>PLAY PAUSE</Text>
+        <Controls />
       </View>
     </View>
   );
@@ -37,5 +38,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor:'white'
   },
 });
