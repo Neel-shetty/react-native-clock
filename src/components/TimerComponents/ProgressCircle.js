@@ -32,18 +32,21 @@ const ProgressCircle = () => {
 
   return (
     <View style={styles.root}>
-      <ReText text={ProgressText} />
-      <Svg style={{ position: "absolute" }}>
+      <ReText style={styles.time} text={ProgressText} />
+      {/* <View style={{position:'absolute',alignItems:'center', justifyContent:'center'}}> */}
+      <Svg
+        style={{ position: "absolute", alignSelf: "center"}}
+      >
         <Circle
           cx={width / 2}
-          cy={height / 2}
+          cy={height / 5.5}
           r={R}
           stroke="#E9E9FF"
           strokeWidth={30}
         />
         <AnimatedCircle
           cx={width / 2}
-          cy={height / 2}
+          cy={height / 5.5}
           r={R}
           stroke="url(#a)"
           strokeWidth={30}
@@ -66,27 +69,7 @@ const ProgressCircle = () => {
           </RadialGradient>
         </Defs>
       </Svg>
-      {/* <Svg
-          // width={12}
-          // height={12}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <Circle cx={width/2} cy={height/2} r={R} stroke="url(#a)" strokeWidth={15} />
-          <Defs>
-            <RadialGradient
-              id="a"
-              cx={0}
-              cy={0}
-              r={1}
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="rotate(122.769 8.19 4.563) scale(700.3466)"
-            >
-              <Stop stopColor="#fff" />
-              <Stop offset={1} stopColor="#7012CE" />
-            </RadialGradient>
-          </Defs>
-        </Svg> */}
+      {/* </View> */}
     </View>
   );
 };
@@ -97,7 +80,17 @@ const styles = StyleSheet.create({
   root: {
     alignItems: "center",
     justifyContent: "center",
-    height: 700,
+    height: height / 3,
+    minHeight: 300,
     width: width,
+    backgroundColor: "pink",
+  },
+  time: {
+    fontFamily: "rubik_Bold",
+    fontSize: 40,
+    textAlign: "center",
+    justifyContent: "center",
+    //top: 60,
+    textAlignVertical: "center",
   },
 });

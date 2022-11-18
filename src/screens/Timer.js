@@ -14,12 +14,16 @@ import ProgressCircle from "../components/TimerComponents/ProgressCircle";
 const Timer = () => {
   return (
     <View style={styles.root}>
-      <Header />
-      <Title />
-      <View style={{alignItems:'center', justifyContent:'center'}}>
+      <View style={{flex:2, alignItems:'center',justifyContent:'center'}}>
+        <Header/>
+      </View>
+      <View style={{flex:3, alignItems:'center', justifyContent:'center'}}>
+        <Title/>
+      </View>
+      <View style={{alignItems:'center', justifyContent:'center', flex:5, backgroundColor:'violet'}}>
         <ProgressCircle />
       </View>
-      <View>
+      <View style={{flex:3, alignItems:'center', justifyContent:'center'}}>
         <Text>PLAY PAUSE</Text>
       </View>
     </View>
