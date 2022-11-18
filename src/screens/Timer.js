@@ -9,14 +9,15 @@ import Svg, {
   Path,
 } from "react-native-svg";
 import Title from "../components/TimerComponents/Title";
+import ProgressCircle from "../components/TimerComponents/ProgressCircle";
 
 const Timer = () => {
   return (
     <View style={styles.root}>
       <Header />
       <Title />
-      <View>
-        <Text>CIRCLE PROGRESS</Text>
+      <View style={{alignItems:'center', justifyContent:'center'}}>
+        <ProgressCircle />
       </View>
       <View>
         <Text>PLAY PAUSE</Text>
