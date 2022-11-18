@@ -2,6 +2,8 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import PrimaryButton from "../ui/PrimaryButton";
 import SecondaryButton from "../ui/SecondaryButton";
+import ProgressCircle, { animateCircle } from "./ProgressCircle";
+import { useSharedValue, withTiming } from "react-native-reanimated";
 
 const Controls = () => {
   return (

@@ -14,13 +14,15 @@ const { width, height } = Dimensions.get("window");
 const CIRCLE_LENGTH = 700;
 const R = CIRCLE_LENGTH / (2 * Math.PI);
 
+
 const ProgressCircle = () => {
+ 
   const progress = useSharedValue(0);
   const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-
   useEffect(() => {
     progress.value = withTiming(1, { duration: 12000 });
   }, []);
+
 
   const animatedProps = useAnimatedProps(() => ({
     strokeDashoffset: CIRCLE_LENGTH * (1 - progress.value),

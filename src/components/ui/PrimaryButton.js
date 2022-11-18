@@ -7,9 +7,9 @@ import {
 } from "react-native";
 import React from "react";
 
-const PrimaryButton = () => {
+const PrimaryButton = ({onPress}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.root}>
         <Text style={styles.title}>Finish</Text>
       </View>
