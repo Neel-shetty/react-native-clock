@@ -11,8 +11,8 @@ const AddTaskScreen = () => {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: "white",
-        backgroundColor:'#FAFAFF'
+        backgroundColor: "white",
+        // backgroundColor:'#FAFAFF'
       }}
     >
       <View style={{ flex: 1, paddingTop: 20 }}>
