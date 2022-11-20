@@ -9,7 +9,7 @@ const Controls = () => {
   return (
     <View>
       <View style={{ padding: 10 }}>
-        <PrimaryButton />
+        <PrimaryButton title={'Finish'} />
       </View>
       <View style={{ paddingHorizontal: 10 }}>
         <SecondaryButton />
