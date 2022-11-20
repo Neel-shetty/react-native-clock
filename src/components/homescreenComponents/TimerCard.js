@@ -19,7 +19,10 @@ const TimerCard = () => {
   const navigation = useNavigation();
   function TimerScreen() {
     navigation.navigate("StackScreens", { screen: "Timer" });
+    let syed = 'gay'
   }
+
+  console.log
   return (
     <View style={styles.root}>
       <View style={styles.card}>
