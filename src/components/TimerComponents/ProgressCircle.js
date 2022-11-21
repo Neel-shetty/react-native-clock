@@ -15,6 +15,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { ReText } from "react-native-redash";
 import { Stopwatch, Timer } from "react-native-stopwatch-timer";
+import Controls from "./Controls";
 
 const { width, height } = Dimensions.get("window");
 
@@ -27,6 +28,7 @@ const ProgressCircle = () => {
   const [timerDuration, setTimerDuration] = useState(90000);
   const [resetTimer, setResetTimer] = useState(false);
   const [resetStopwatch, setResetStopwatch] = useState(false);
+  const [time, setTime] = useState(0);
 
   const progress = useSharedValue(0);
   const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -42,6 +44,10 @@ const ProgressCircle = () => {
     return `${Math.floor(progress.value * 100)}`;
   });
 
+  function start() {
+    setIsStopwatchStart(!isStopwatchStart);
+    setResetStopwatch(false);
+  }
   // useEffect(() => {
   //   setIsStopwatchStart(!isStopwatchStart);
   //   setResetStopwatch(false);
@@ -49,8 +55,8 @@ const ProgressCircle = () => {
 
   function Countdown() {
     return (
-      <View>
-        <Stopwatch
+      <View style={{ height: 200, justifyContent: "flex-end" }}>
+        {/* <Stopwatch
           laps
           msecs
           start={isStopwatchStart}
@@ -60,10 +66,11 @@ const ProgressCircle = () => {
           options={options}
           //options for the styling
           getTime={(time) => {
+            setTime(time);
             console.log(time);
           }}
-        />
-        <TouchableHighlight
+        /> */}
+        {/* <TouchableHighlight
           onPress={() => {
             setIsStopwatchStart(!isStopwatchStart);
             setResetStopwatch(false);
@@ -80,7 +87,10 @@ const ProgressCircle = () => {
           }}
         >
           <Text style={styles.buttonText}>RESET</Text>
-        </TouchableHighlight>
+        </TouchableHighlight> */}
+        <View>
+          <Controls onPressFinish={start} />
+        </View>
       </View>
     );
   }
@@ -102,9 +112,8 @@ const ProgressCircle = () => {
   return (
     <View style={styles.root}>
       <ReText style={styles.time} text={ProgressText} />
-      {Countdown()}
       {/* <View style={{position:'absolute',alignItems:'center', justifyContent:'center'}}> */}
-      <Svg style={{ position: "absolute", alignSelf: "center" }}>
+      <Svg style={{ position: "absolute", alignSelf: "center", bottom: 0 }}>
         <Circle
           cx={width / 2}
           cy={height / 5.5}
@@ -137,6 +146,44 @@ const ProgressCircle = () => {
           </RadialGradient>
         </Defs>
       </Svg>
+
+      <View style={{ height: 200, justifyContent: "flex-end" }}>
+        <Stopwatch
+          laps
+          msecs
+          start={isStopwatchStart}
+          //To start
+          reset={resetStopwatch}
+          //To reset
+          options={options}
+          //options for the styling
+          getTime={(time) => {
+            // setTime(time);
+            console.log(time);
+          }}
+        />
+        {/* <TouchableHighlight
+          onPress={() => {
+            setIsStopwatchStart(!isStopwatchStart);
+            setResetStopwatch(false);
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {!isStopwatchStart ? "START" : "STOP"}
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            setIsStopwatchStart(false);
+            setResetStopwatch(true);
+          }}
+        >
+          <Text style={styles.buttonText}>RESET</Text>
+        </TouchableHighlight> */}
+        <View>
+          <Controls onPressFinish={start} />
+        </View>
+      </View>
       {/* </View> */}
     </View>
   );
@@ -148,10 +195,11 @@ const styles = StyleSheet.create({
   root: {
     alignItems: "center",
     justifyContent: "center",
-    height: height / 3,
-    minHeight: 300,
+    // height: height / 3,
+    // minHeight: 300,
     width: width,
-    //backgroundColor: "pink",
+    // backgroundColor: "pink",
+    flex: 1,
   },
   time: {
     fontFamily: "rubik_Bold",

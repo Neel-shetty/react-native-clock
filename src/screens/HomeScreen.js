@@ -52,40 +52,6 @@ const HomeScreen = () => {
       <View style={styles.top}>
         <Header title={"Task"} />
         <TimerCard />
-        <View>
-          <Stopwatch
-            laps
-            msecs
-            start={isStopwatchStart}
-            //To start
-            reset={resetStopwatch}
-            //To reset
-            options={options}
-            //options for the styling
-            getTime={(time) => {
-              console.log(time);
-            }}
-          />
-          <TouchableHighlight
-            onPress={() => {
-              setIsStopwatchStart(!isStopwatchStart);
-              setResetStopwatch(false);
-            }}
-          >
-            <Text style={styles.buttonText}>
-              {!isStopwatchStart ? "START" : "STOP"}
-            </Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => {
-              setIsStopwatchStart(false);
-              setResetStopwatch(true);
-            }}
-          >
-            <Text style={styles.buttonText}>RESET</Text>
-          </TouchableHighlight>
-          <Text>Test hi</Text>
-        </View>
       </View>
       <View style={styles.bottom}>
         <ListHeader title={"Today"} />

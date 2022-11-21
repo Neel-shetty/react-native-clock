@@ -15,12 +15,12 @@ const Timer = () => {
       <View style={{flex:1, alignItems:'center', justifyContent:'flex-start'}}>
         <Title/>                
       </View>
-      <View style={{alignItems:'center', justifyContent:'center', flex:5}}>
+      <View style={{alignItems:'center', justifyContent:'center', flex:8}}>
         <ProgressCircle />
       </View>
-      <View style={{flex:3, alignItems:'center', justifyContent:'center'}}>
+      {/* <View style={{flex:3, alignItems:'center', justifyContent:'center'}}>
         <Controls />
-      </View>
+      </View> */}
     </View>
   );
 };

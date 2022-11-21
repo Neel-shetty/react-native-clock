@@ -6,7 +6,7 @@ import ProgressCircle, { animateCircle } from "./ProgressCircle";
 import { useSharedValue, withTiming } from "react-native-reanimated";
 import {useNavigation} from "@react-navigation/native"
 
-const Controls = () => {
+const Controls = ({onPressFinish}) => {
   const navigation = useNavigation()
   function back(){
   navigation.navigate("HomeScreen")
@@ -14,7 +14,7 @@ const Controls = () => {
   return (
     <View>
       <View style={{ padding: 10 }}>
-        <PrimaryButton onPress={back} title={'Finish'} />
+        <PrimaryButton onPress={onPressFinish} title={'Finish'} />
       </View>
       <View style={{ paddingHorizontal: 10 }}>
         <SecondaryButton onPress={back}/>
