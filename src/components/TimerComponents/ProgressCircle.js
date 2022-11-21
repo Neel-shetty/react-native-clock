@@ -1,5 +1,11 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import React, { useEffect } from "react";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import Svg, { Circle, Defs, RadialGradient, Stop } from "react-native-svg";
 import Animated, {
   useAnimatedProps,
@@ -8,21 +14,25 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { ReText } from "react-native-redash";
+import { Stopwatch, Timer } from "react-native-stopwatch-timer";
 
 const { width, height } = Dimensions.get("window");
 
 const CIRCLE_LENGTH = 700;
 const R = CIRCLE_LENGTH / (2 * Math.PI);
 
-
 const ProgressCircle = () => {
- 
+  const [isTimerStart, setIsTimerStart] = useState(false);
+  const [isStopwatchStart, setIsStopwatchStart] = useState(false);
+  const [timerDuration, setTimerDuration] = useState(90000);
+  const [resetTimer, setResetTimer] = useState(false);
+  const [resetStopwatch, setResetStopwatch] = useState(false);
+
   const progress = useSharedValue(0);
   const AnimatedCircle = Animated.createAnimatedComponent(Circle);
   useEffect(() => {
     progress.value = withTiming(1, { duration: 12000 });
   }, []);
-
 
   const animatedProps = useAnimatedProps(() => ({
     strokeDashoffset: CIRCLE_LENGTH * (1 - progress.value),
@@ -32,13 +42,69 @@ const ProgressCircle = () => {
     return `${Math.floor(progress.value * 100)}`;
   });
 
+  // useEffect(() => {
+  //   setIsStopwatchStart(!isStopwatchStart);
+  //   setResetStopwatch(false);
+  // });
+
+  function Countdown() {
+    return (
+      <View>
+        <Stopwatch
+          laps
+          msecs
+          start={isStopwatchStart}
+          //To start
+          reset={resetStopwatch}
+          //To reset
+          options={options}
+          //options for the styling
+          getTime={(time) => {
+            console.log(time);
+          }}
+        />
+        <TouchableHighlight
+          onPress={() => {
+            setIsStopwatchStart(!isStopwatchStart);
+            setResetStopwatch(false);
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {!isStopwatchStart ? "START" : "STOP"}
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => {
+            setIsStopwatchStart(false);
+            setResetStopwatch(true);
+          }}
+        >
+          <Text style={styles.buttonText}>RESET</Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+  const options = {
+    container: {
+      backgroundColor: "#FF0000",
+      padding: 5,
+      borderRadius: 5,
+      width: 200,
+      alignItems: "center",
+    },
+    text: {
+      fontSize: 25,
+      color: "#FFF",
+      marginLeft: 7,
+    },
+  };
+
   return (
     <View style={styles.root}>
       <ReText style={styles.time} text={ProgressText} />
+      {Countdown()}
       {/* <View style={{position:'absolute',alignItems:'center', justifyContent:'center'}}> */}
-      <Svg
-        style={{ position: "absolute", alignSelf: "center"}}
-      >
+      <Svg style={{ position: "absolute", alignSelf: "center" }}>
         <Circle
           cx={width / 2}
           cy={height / 5.5}
