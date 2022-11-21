@@ -29,7 +29,7 @@ const TimerCard = () => {
         <View>
           <View>
             <View style={styles.timeContainer}>
-              <Text style={styles.time}>00.39.20</Text>
+              <Text style={styles.time}>00.24.20</Text>
             </View>
             <View style={styles.titleContainer}>
               <View style={styles.Circle}>

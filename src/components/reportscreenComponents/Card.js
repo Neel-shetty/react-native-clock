@@ -2,20 +2,25 @@ import { Dimensions, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-const Card = () => {
+const Card = ({title}) => {
+	const w1 = title.split(" ")[0]
+	//console.log(w1)
+	const w2 = title.split(" ")[1]
   return (
     <View style={styles.root}>
       <View style={styles.topContainer}>
-        <View style={styles.iconContainer}>
-          <Ionicons name="checkmark" size={24} color="black" />
+        <View style={[styles.iconContainer,(title==="Time Duration" && {backgroundColor:"violet"})]}>
+	  {title==="Tasks Completed" &&<Ionicons name="checkmark" size={24} color="black" />}
+	  {title==="Time Duration" &&<Ionicons name="time-outline" size={24} color="black" />}
         </View>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Tasks</Text>
-          <Text style={styles.title}>Completed</Text>
+          <Text style={styles.title}>{w1}</Text>
+          <Text style={styles.title}>{w2}</Text>
         </View>
       </View>
       <View style={styles.bottomContainer}>
-        <Text style={styles.counter}>12</Text>
+	  {title === "Tasks Completed" &&<Text style={styles.counter}>12</Text>}
+	  {title === "Time Duration" &&<Text style={styles.counter}>15h 24m</Text>}
       </View>
     </View>
   );
@@ -36,8 +41,9 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     paddingBottom: 10,
+    paddingLeft: 30
   },
   iconContainer: {
     width: 32,
@@ -59,7 +65,8 @@ const styles = StyleSheet.create({
   bottomContainer: {
     alignItems: "flex-start",
     justifyContent: "center",
-    paddingLeft: 16,
+    paddingLeft: 30,
+   // backgroundColor: "pink"
   },
   counter: {
     fontFamily: "rubik_Medium",

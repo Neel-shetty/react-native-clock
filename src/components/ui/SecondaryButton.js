@@ -7,10 +7,10 @@ import {
 } from "react-native";
 import React from "react";
 
-const SecondaryButton = () => {
+const SecondaryButton = ({onPress}) => {
   return (
     <View style={styles.root}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <Text style={styles.title}>Quit</Text>
       </TouchableOpacity>
     </View>

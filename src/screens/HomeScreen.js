@@ -1,13 +1,22 @@
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import React, { useCallback, useEffect } from "react";
+import { Dimensions, SafeAreaView, StyleSheet, Text, View , Button} from "react-native";
+import React, { useCallback, useEffect,useRef ,useState} from "react";
 import Header from "../components/sharedComponents/Header";
 import TimerCard from "../components/homescreenComponents/TimerCard";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import ListHeader from "../components/homescreenComponents/ListHeader";
 import TaskList from "../components/homescreenComponents/TaskList/TaskList";
+import {Timer, Countdown} from 'react-native-element-timer';
+import { Stopwatch, Timer as Time } from 'react-native-stopwatch-timer'
+
 
 const HomeScreen = () => {
+  const [timerStart, setTimer] = useState()
+  const [stopwatchStart, setStopwatchStart] = useState()
+  const [totalDuration, setTotalDuration] = useState()
+  const [timerReset, setTimerReset] = useState()
+  const [stopwatchReset, setStopwatchReset] = useState()
+
   const [fontsLoaded] = useFonts({
     rubik_Medium: require("../../assets/fonts/static/Rubik-Medium.ttf"),
     rubik_Regular: require("../../assets/fonts/static/Rubik-Regular.ttf"),
@@ -21,6 +30,7 @@ const HomeScreen = () => {
     prepare();
   }, []);
 
+
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
@@ -30,11 +40,21 @@ const HomeScreen = () => {
   if (!fontsLoaded) {
     return null;
   }
+  function toggleTimer(){
+  setTimer(true)
+  setResetTimer(false)
+  }
   return (
     <SafeAreaView onLayout={onLayoutRootView} style={styles.flex1}>
       <View style={styles.top}>
         <Header title={"Task"} />
         <TimerCard />
+	  <View>
+            <Text>
+              Test
+	      hi
+	    </Text>
+	 </View> 
       </View>
       <View style={styles.bottom}>
         <ListHeader title={"Today"} />

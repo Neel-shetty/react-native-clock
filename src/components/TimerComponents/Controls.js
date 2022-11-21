@@ -4,15 +4,20 @@ import PrimaryButton from "../ui/PrimaryButton";
 import SecondaryButton from "../ui/SecondaryButton";
 import ProgressCircle, { animateCircle } from "./ProgressCircle";
 import { useSharedValue, withTiming } from "react-native-reanimated";
+import {useNavigation} from "@react-navigation/native"
 
 const Controls = () => {
+  const navigation = useNavigation()
+  function back(){
+  navigation.navigate("HomeScreen")
+  }
   return (
     <View>
       <View style={{ padding: 10 }}>
-        <PrimaryButton title={'Finish'} />
+        <PrimaryButton onPress={back} title={'Finish'} />
       </View>
       <View style={{ paddingHorizontal: 10 }}>
-        <SecondaryButton />
+        <SecondaryButton onPress={back}/>
       </View>
     </View>
   );

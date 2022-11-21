@@ -13,8 +13,8 @@ const ReportScreen = () => {
       </View>
       <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
         <View style={styles.cardContainer}>
-          <Card />
-          <Card />
+          <Card title={"Time Duration"} />
+          <Card title={"Tasks Completed"}/>
         </View>
         <View style={{paddingVertical:20}}>
           <Switch />
