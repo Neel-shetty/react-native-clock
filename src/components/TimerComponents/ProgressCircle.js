@@ -155,7 +155,7 @@ const ProgressCircle = () => {
           //To start
           reset={resetStopwatch}
           //To reset
-          options={options}
+          // options={options}
           //options for the styling
           getTime={(time) => {
             // setTime(time);
