@@ -56,38 +56,7 @@ const ProgressCircle = () => {
   function Countdown() {
     return (
       <View style={{ height: 200, justifyContent: "flex-end" }}>
-        {/* <Stopwatch
-          laps
-          msecs
-          start={isStopwatchStart}
-          //To start
-          reset={resetStopwatch}
-          //To reset
-          options={options}
-          //options for the styling
-          getTime={(time) => {
-            setTime(time);
-            console.log(time);
-          }}
-        /> */}
-        {/* <TouchableHighlight
-          onPress={() => {
-            setIsStopwatchStart(!isStopwatchStart);
-            setResetStopwatch(false);
-          }}
-        >
-          <Text style={styles.buttonText}>
-            {!isStopwatchStart ? "START" : "STOP"}
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            setIsStopwatchStart(false);
-            setResetStopwatch(true);
-          }}
-        >
-          <Text style={styles.buttonText}>RESET</Text>
-        </TouchableHighlight> */}
+  
         <View>
           <Controls onPressFinish={start} />
         </View>
@@ -162,24 +131,6 @@ const ProgressCircle = () => {
             console.log(time);
           }}
         />
-        {/* <TouchableHighlight
-          onPress={() => {
-            setIsStopwatchStart(!isStopwatchStart);
-            setResetStopwatch(false);
-          }}
-        >
-          <Text style={styles.buttonText}>
-            {!isStopwatchStart ? "START" : "STOP"}
-          </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          onPress={() => {
-            setIsStopwatchStart(false);
-            setResetStopwatch(true);
-          }}
-        >
-          <Text style={styles.buttonText}>RESET</Text>
-        </TouchableHighlight> */}
         <View>
           <Controls onPressFinish={start} />
         </View>
