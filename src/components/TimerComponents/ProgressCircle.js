@@ -65,16 +65,16 @@ const ProgressCircle = () => {
   }
   const options = {
     container: {
-      backgroundColor: "#FF0000",
-      padding: 5,
-      borderRadius: 5,
-      width: 200,
-      alignItems: "center",
+   // width: 100,
+   // backgroundColor: 'red'
     },
     text: {
-      fontSize: 25,
-      color: "#FFF",
-      marginLeft: 7,
+    fontFamily: "rubik_Bold",
+    fontSize: 40,
+    textAlign: "center",
+    justifyContent: "center",
+    //top: 60,
+    textAlignVertical: "center",
     },
   };
 
@@ -124,11 +124,17 @@ const ProgressCircle = () => {
           //To start
           reset={resetStopwatch}
           //To reset
-          // options={options}
+           options={options}
           //options for the styling
           getTime={(time) => {
             // setTime(time);
-            console.log(time);
+	    time = time.split(':')
+            const formattedTime = (time[1],time[2],time[3]);
+		  return (
+                  <View>
+<Text>{formattedTime}</Text>
+			  </View>
+		  )
           }}
         />
         <View>
