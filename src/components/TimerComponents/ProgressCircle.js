@@ -78,6 +78,9 @@ const ProgressCircle = () => {
     textAlignVertical: "center",
     },
   };
+	function counter() {
+console.log("123...")
+	}
 
   return (
     <View style={styles.root}>
